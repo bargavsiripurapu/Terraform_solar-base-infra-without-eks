@@ -4,10 +4,10 @@ resource "aws_instance" "EC2Instance" {
     key_name = "ganana-aws-master"
     availability_zone = "us-east-1a"
     tenancy = "default"
-    subnet_id = ""
+    subnet_id = aws_subnet.EC2Subnet3.id
     ebs_optimized = false
     vpc_security_group_ids = [
-        ""
+        aws_security_group.EC2SecurityGroup.id
     ]
     source_dest_check = true
     root_block_device {
